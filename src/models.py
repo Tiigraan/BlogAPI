@@ -10,6 +10,7 @@ author = Table(
     metadata,
     Column("id", Integer, primary_key=True),
     Column("name", String, nullable=False),
+    Column("username", String, nullable=False),
     Column("job", String, nullable=False),
     Column("photo", String, nullable=False)
 )
