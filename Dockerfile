@@ -10,11 +10,7 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-WORKDIR /src
-
-CMD gunicorn main:app --w
-
-RUN chmod a+x docker
+RUN chmod a+x docker/*.sh
 
 RUN alembic upgrade head
 
