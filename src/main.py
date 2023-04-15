@@ -2,9 +2,9 @@ from fastapi import FastAPI, Depends
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.database import get_async_session
-from src.models import author, publication
-from src.schemas import Author, Publication
+from database import get_async_session
+from models import author, publication
+from schemas import Author, Publication
 
 
 app = FastAPI()
