@@ -14,6 +14,8 @@ WORKDIR /src
 
 CMD gunicorn main:app --w
 
+RUN chmod a+x docker/*.sh
+
 RUN alembic upgrade head
 
 WORKDIR src
