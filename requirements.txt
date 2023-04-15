@@ -3,3 +3,4 @@ asyncpg
 fastapi[all]
 python-dotenv
 sqlalchemy
+gunicorn
