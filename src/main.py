@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Depends
-from sqlalchemy import select, Insert
+from sqlalchemy import select, Insert, desc
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from database import get_async_session
@@ -24,7 +24,7 @@ async def get_publications(author_id: int, offset: int = 0, limit: int = 10,
                            session: AsyncSession = Depends(get_async_session)):
     query = select(publication)\
         .where(publication.c.author_id == author_id)\
-        .order_by(publication.c.date)\
+        .order_by(desc(publication.c.date))\
         .limit(limit)\
         .offset(offset)
 
