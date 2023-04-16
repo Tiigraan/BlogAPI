@@ -11,7 +11,10 @@ app = FastAPI()
 
 @app.get("/authors", response_model=list[Author])
 async def get_authors(offset: int = 0, limit: int = 10, session: AsyncSession = Depends(get_async_session)):
-    query = select(author).order_by(author.c.name).limit(limit).offset(offset)
+    query = select(author)\
+        .order_by(author.c.name)\
+        .limit(limit)\
+        .offset(offset)
     result = (await session.execute(query)).all()
     return [Author(id=a[0], name=a[1], username=a[2], job=a[3], photo=a[4]) for a in result]
 
